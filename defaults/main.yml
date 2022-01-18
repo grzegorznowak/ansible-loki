@@ -27,3 +27,13 @@ promtail_config_client_external_labels:
     node: "{{ inventory_hostname }}"
 
 promtail_config_scrape_journald_path: /run/log/journal
+
+promtail_config_scrape_configs:
+    - job_name: journal
+        journal:
+          path: {{ promtail_config_scrape_journald_path }}
+          labels:
+            job: journal
+        relabel_configs:
+          - source_labels: ['__journal__systemd_unit']
+            target_label: 'unit'
