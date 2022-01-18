@@ -17,7 +17,7 @@ common:
       rules_directory: /tmp/loki/rules
   replication_factor: 1
   ring:
-    instance_addr: {{ loki_grpc_listen_port }}
+    instance_addr: {{ loki_grpc_listen_address }}
     kvstore:
       store: inmemory
 
