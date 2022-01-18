@@ -1,7 +1,7 @@
 ---
 - name: Check targets
   assert:
-    that: __install_loki or __install_promtail
+    that: __install_loki
 
 - name: Check version
   assert:
@@ -18,14 +18,3 @@
   when:
     - __install_loki
     - __loki_version is not defined
-
-- name: "Preflight: promtail"
-  include_tasks: preflight-promtail.yml
-  when:
-    - __install_promtail
-    - __promtail_version is not defined
-
-- name: Empty version
-  set_fact:
-    __promtail_version: ""
-  when: not __promtail_stat.stat.exists

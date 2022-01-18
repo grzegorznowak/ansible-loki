@@ -2,18 +2,13 @@
 
 # ansible-loki
 
-An Ansible role to install Grafana Loki and Promtail.
+An Ansible role to install Grafana Loki.
 
 ## Requirements
 
-For the standard (from binary) install of loki/promtail:
+For the standard (from binary) install of loki:
 
 - `unzip` on the hosts
-
-For the dockerized promtail:
-
-- Python: `docker==4.3.1`
-- `docker-cli`
 
 ## Role Variables
 
@@ -34,8 +29,7 @@ all:
   children:
     loki:
       monitoring.host.example.org:
-    promtail:
-      monitoring.host.example.org:
+
 ```
 
 And the playbook:
