@@ -24,16 +24,16 @@ promtail_config_client_loki_path: /loki/api/v1/push
 promtail_config_client_tenant_id: luzilla
 promtail_config_client_set_tenant_id: true
 promtail_config_client_external_labels:
-    node: "{{ inventory_hostname }}"
+  node: "{{ inventory_hostname }}"
 
 promtail_config_scrape_journald_path: /run/log/journal
 
 promtail_config_scrape_configs:
-    - job_name: journal
-        journal:
-          path: {{ promtail_config_scrape_journald_path }}
-          labels:
-            job: journal
-        relabel_configs:
-          - source_labels: ['__journal__systemd_unit']
-            target_label: 'unit'
+  - job_name: journal
+    journal:
+      path: "{{ promtail_config_scrape_journald_path }}"
+      labels:
+        job: journal
+    relabel_configs:
+      - source_labels: ['__journal__systemd_unit']
+        target_label: 'unit'
