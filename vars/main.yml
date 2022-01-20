@@ -27,4 +27,3 @@ __loki_download_github: "https://github.com/grafana/loki/releases/download"
 __loki_archive: "loki-{{ __loki_go_os }}-{{ __loki_go_arch }}.zip"
 __loki_download: "{{ __loki_download_github }}/v{{ loki_version }}/{{ __loki_archive }}"
 
-__install_loki: "{{ inventory_hostname in groups['loki'] | default([]) }}"

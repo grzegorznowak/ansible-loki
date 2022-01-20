@@ -3,4 +3,4 @@
 
 - name: Install loki
   include_tasks: loki.yml
-  when: __install_loki
+
