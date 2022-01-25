@@ -32,4 +32,4 @@ schema_config:
         period: {{ loki_config_period }}
 
 ruler:
-  alertmanager_url: http://localhost:9093
+  alertmanager_url: {{ loki_alertmanager_url }}
