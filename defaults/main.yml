@@ -15,3 +15,7 @@ loki_max_streams_per_user: 10000
 
 loki_alertmanager_url: http://localhost:9093
 loki_prometheus_url: http://localhost:9090
+
+
+loki_alert_rules_files:
+  - loki/rules/*.rules
