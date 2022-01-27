@@ -16,7 +16,9 @@
     state: directory
   with_items:
     - "{{ loki_config_directory }}"
+    - "{{ loki_config_directory }}/rules"
     - "{{ loki_config_store }}"
+    
 
 - name: Setup configuration
   template:
