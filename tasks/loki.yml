@@ -17,6 +17,7 @@
   with_items:
     - "{{ loki_config_directory }}"
     - "{{ loki_config_directory }}/rules"
+    - "{{ loki_config_directory }}/rules/fake"
     - "{{ loki_config_store }}"
     
 
@@ -29,6 +30,17 @@
   notify:
     - restart systemd loki
 
+- name: Copy custom alerting rule files
+  copy:
+    src: "{{ item }}"
+    dest: "{{ loki_config_directory }}/rules/fake"
+    owner: root
+    group: root
+    mode: 0640
+  with_fileglob: "{{ loki_alert_rules_files }}"
+  notify:
+    - restart systemd loki
+    
 - block:
     - name: Download loki release
       get_url:
