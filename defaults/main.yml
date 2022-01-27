@@ -14,3 +14,4 @@ loki_config_log_level: debug
 loki_max_streams_per_user: 10000
 
 loki_alertmanager_url: http://localhost:9093
+loki_prometheus_url: http://localhost:9090
