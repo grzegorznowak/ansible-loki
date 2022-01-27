@@ -45,3 +45,11 @@ limits_config:
 
 ruler:
   alertmanager_url: {{ loki_alertmanager_url }}
+  storage: 
+    type: local
+    local:
+      directory: {{ loki_config_directory }}/rules
+  remote_write:
+    enabled: true
+    client: 
+      url: {{ loki_prometheus_url }}
