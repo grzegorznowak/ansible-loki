@@ -70,7 +70,7 @@
         group: root
         remote_src: true
       notify: restart systemd loki
-  check_mode: false
+  check_mode: no
   when:
     - __loki_version != loki_version
 

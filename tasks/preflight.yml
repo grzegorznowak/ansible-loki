@@ -10,5 +10,6 @@
 - name: Empty version
   set_fact:
     __loki_version: ""
+  check_mode: no
   when:
     - __loki_version is not defined

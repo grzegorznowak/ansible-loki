@@ -11,4 +11,5 @@
 - name: Set version
   set_fact:
     __loki_version: "{{ __loki_version_out.stdout_lines[0].split(' ')[2] | replace('v', '') }}"
+  check_mode: no
   when: __loki_stat.stat.exists
