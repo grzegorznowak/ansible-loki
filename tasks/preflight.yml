@@ -3,6 +3,7 @@
   assert:
     that: not loki_version.startswith('v')
     fail_msg: "loki_version must be '1.2.0', and not 'v1.2.0'"
+  check_mode: no
 
 - name: "Preflight: loki"
   include_tasks: preflight-loki.yml
